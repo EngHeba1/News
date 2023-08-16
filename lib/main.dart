@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:news_task/screens/tabs_screen.dart';
+
+import 'layout/home_layout.dart';
+import 'models/sourcesResponce.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,8 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: ,
-      routes: ,
+      initialRoute: HomeLayout.routName,
+      routes:{
+        HomeLayout.routName :(context) => HomeLayout(),
+
+
+      } ,
 
     );
   }
