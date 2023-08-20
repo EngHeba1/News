@@ -8,8 +8,8 @@ import '../../models/sourcesResponce.dart';
 import '../constant.dart';
 class ApiManger {
 
-  static Future<SourcesResponce> getSources() async {
-    Uri url = Uri.https(BASE_URL, END_POINT, {"apiKey": ApiKey});
+  static Future<SourcesResponce> getSources(String id) async {
+    Uri url = Uri.https(BASE_URL, END_POINT, {"apiKey": ApiKey,"category" : id});
     Response response = await http.get(url); //string
     var jsonresponse = jsonDecode(response.body); //map
     SourcesResponce sourcesResponce = SourcesResponce.fromJson(

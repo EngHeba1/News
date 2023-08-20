@@ -7,7 +7,7 @@ import 'app_colors.dart';
 class AppTexts {
 
   // ********************************* English *********************************
-  static TextStyle NovaSquare12BlackLight() =>
+  static TextStyle NovaSquare12BlackLight () =>
       GoogleFonts.novaSquare(
           fontSize: 12.sp, color: AppCloros.darkColor, fontWeight: FontWeight.normal);
 
