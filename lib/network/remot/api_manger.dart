@@ -17,9 +17,12 @@ class ApiManger {
     return sourcesResponce;
   }
 
-  static Future<NewsResponse> getNews(String sourseId) async {
+  static Future<NewsResponse> getNews({String? sourseId ,String?  searchKey}) async {
     Uri url = Uri.https(
-        BASE_URL, endpoint, {"apiKey": ApiKey, "sources": sourseId});
+        BASE_URL, endpoint, {
+          "apiKey": ApiKey,
+      "sources": sourseId ,
+        "q": searchKey  });
     Response response = await http.get(url); //string
     var jsonResponse = jsonDecode(response.body); //json
     NewsResponse newsResponse=NewsResponse.fromJson(jsonResponse);

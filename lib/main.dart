@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_task/screens/categories_screen.dart';
+import 'package:news_task/screens/news_details.dart';
 import 'package:news_task/screens/tabs_screen.dart';
 
 import 'layout/home_layout.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         initialRoute:HomeLayout.routName,
         routes:{
           HomeLayout.routName :(context) => HomeLayout(),
-         // CategoriesScreen.routName : (context) => CategoriesScreen(),
+          NewsDetails.routName : (context) => NewsDetails(),
 
 
         } ,

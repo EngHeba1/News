@@ -39,7 +39,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         ),
         FutureBuilder(
-          future: ApiManger.getNews(widget.sourses[selectItem].id ?? ""),
+          future: ApiManger.getNews(sourseId: widget.sourses[selectItem].id ?? ""),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());

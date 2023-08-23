@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:news_task/models/category_model.dart';
 import 'package:news_task/screens/news_screen.dart';
-import 'package:news_task/screens/tabs_screen.dart';
-
-import '../network/remot/api_manger.dart';
 import '../screens/categories_screen.dart';
+import '../screens/news_search.dart';
+import '../screens/widgets/drawer_widget.dart';
 
 class HomeLayout extends StatefulWidget {
   //const HomeLayout({super.key});
@@ -24,8 +23,7 @@ class _HomeLayoutState extends State<HomeLayout> {
          //backgroundColor: Colors.transparent,
           appBar: AppBar(
             backgroundColor: Color(0xff39A552),
-            title: Text(
-              "News App",),
+            title: Text(categoryModel==null? "News App" : categoryModel!.name,),
             elevation: 0,
 
             toolbarHeight: 90,
@@ -34,7 +32,16 @@ class _HomeLayoutState extends State<HomeLayout> {
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30))),
             centerTitle: true,
+            actions: [Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                onPressed: () {
+                showSearch(context: context,
+                    delegate:Search()); },
+                icon:Icon(Icons.search,size: 30),),
+            )],
           ),
+          drawer: DrawerWidget(onDrawerSelect),
           body: categoryModel==null?CategoriesScreen(onCategorySelect):NewsScreen(categoryModel!),
 
         )
@@ -50,5 +57,18 @@ class _HomeLayoutState extends State<HomeLayout> {
 
     });
 
+  }
+
+  void onDrawerSelect(number) {
+    if (number==DrawerWidget.catogry){
+      categoryModel=null;
+    }
+    if(number==DrawerWidget.setting){
+
+    }
+    Navigator.pop(context);
+ setState(() {
+
+ });
   }
 }
